@@ -2,22 +2,24 @@
 #include <vector>
 using namespace std;
 
+// ë¬¸ì œ ë²ˆí˜¸: 2798(ë¸”ë™ì­)
+
 int Close(int N, int M, vector<int> Cards);
 
 int main()
 {
-	int N; // Ä«µåÀÇ °³¼ö
-	int M; // ÁöÁ¤ ¼ıÀÚ
-	int tmp; // Àá½Ã »ç¿ëÇÒ º¯¼ö
+	int N; // ì¹´ë“œì˜ ê°œìˆ˜
+	int M; // ì§€ì • ìˆ«ì
+	int tmp; // ì ì‹œ ì‚¬ìš©í•  ë³€ìˆ˜
 
-	cin >> N >> M; // Ä«µåÀÇ °³¼ö¿Í ÁöÁ¤ ¼ıÀÚ¸¦ ÀÔ·Â¹Ş´Â´Ù.
+	cin >> N >> M; // ì¹´ë“œì˜ ê°œìˆ˜ì™€ ì§€ì • ìˆ«ìë¥¼ ì…ë ¥ë°›ëŠ”ë‹¤.
 
-	vector<int> Cards; // ¼ıÀÚ¸¦ ÀúÀåÇÒ º¤ÅÍ »ı¼º
+	vector<int> Cards; // ìˆ«ìë¥¼ ì €ì¥í•  ë²¡í„° ìƒì„±
 
 	for (int i = 0; i < N; i++)
 	{
 		cin >> tmp;
-		Cards.push_back(tmp); // ÀúÀåÇÔ
+		Cards.push_back(tmp); // ì €ì¥í•¨
 	}
 
 	cout << Close(N, M, Cards) << endl;
@@ -28,7 +30,7 @@ int main()
 
 int Close(int N, int M, vector<int> Cards)
 {
-	int MAX = 0; // °¡Àå °¡±î¿î ¼ıÀÚ¸¦ ´ãÀ» º¯¼ö
+	int MAX = 0; // ê°€ì¥ ê°€ê¹Œìš´ ìˆ«ìë¥¼ ë‹´ì„ ë³€ìˆ˜
 	int tmp;
 	for (int i = 0; i < N-2; i++)
 	{
