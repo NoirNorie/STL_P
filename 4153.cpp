@@ -2,7 +2,7 @@
 #include <cmath>
 using namespace std;
 
-// ¹®Á¦ ¹øÈ£: 4153(Á÷°¢ »ï°¢Çü)
+// ë¬¸ì œ ë²ˆí˜¸: 4153(ì§ê° ì‚¼ê°í˜•)
 
 int main()
 {
