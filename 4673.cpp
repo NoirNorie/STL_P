@@ -3,6 +3,8 @@
 #include <cmath>
 using namespace std;
 
+// 문제 번호: 4673(셀프 넘버)
+
 void d()
 {
 	int res;
