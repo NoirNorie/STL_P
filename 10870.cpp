@@ -1,7 +1,7 @@
 #include <iostream>
 using namespace std;
 
-// ¹®Á¦ ¹øÈ£: 10870(ÇÇº¸³ªÄ¡ ¼ö¿­)
+//ë¬¸ì œ ë²ˆí˜¸: 10870(í”¼ë³´ë‚˜ì¹˜ ìˆ˜ì—´)
 
 int fibo(int n)
 {
