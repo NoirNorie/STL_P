@@ -1,7 +1,7 @@
 #include <iostream>
 using namespace std;
 
-// ¹®Á¦ ¹øÈ£: 10872(ÆÑÅä¸®¾ó)
+// ë¬¸ì œ ë²ˆí˜¸: 10872(íŒ©í† ë¦¬ì–¼)
 
 int factorial(int n)
 {
