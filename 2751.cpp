@@ -2,7 +2,7 @@
 #include <vector>
 using namespace std;
 
-// ¹®Á¦ ¹øÈ£: 2750(¼ö Á¤·ÄÇÏ±â)
+// ë¬¸ì œ ë²ˆí˜¸: 2751(ìˆ˜ ì •ë ¬í•˜ê¸° 2)
 
 int main()
 {
