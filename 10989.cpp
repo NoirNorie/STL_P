@@ -1,15 +1,18 @@
 #include <iostream>
 using namespace std;
 
-// ¹®Á¦ ¹øÈ£: 10989(¼ö Á¤·ÄÇÏ±â 3)
+// ë¬¸ì œ ë²ˆí˜¸: 10989(ìˆ˜ ì •ë ¬í•˜ê¸° 3)
+// ì›ë˜ ë²¡í„°ë¥¼ ì‚¬ìš©í•˜ì—¬ í’€ì´ë¥¼ í•˜ì˜€ìœ¼ë‚˜ ë©”ëª¨ë¦¬ë¥¼ ì´ˆê³¼í•˜ì—¬ ë°°ì—´ì„ ì‚¬ìš©í•¨
+
 
 int main()
 {
 	ios_base::sync_with_stdio(false);
 	cin.tie(NULL); cout.tie(NULL);
 
+	// ë²¡í„° í’€ì´ì™€ ë™ì¼í•˜ê²Œ ê³„ìˆ˜ ì •ë ¬ ë°©ë²•ì„ ì‚¬ìš©í•¨
 	int N; cin >> N;
-	int Array[10001] = { 0 }; // °ø¹é ¹è¿­ ¼±¾ğ ¹× ÃÊ±âÈ­
+	int Array[10001] = { 0 }; // ê³µë°± ë°°ì—´ ì„ ì–¸ ë° ì´ˆê¸°í™”
 
 	for (int i = 0; i < N; i++)
 	{
@@ -24,13 +27,15 @@ int main()
 		}
 	}
 
-
+	// ê³„ìˆ˜ ì •ë ¬ ë°©ë²•ì„ ì‚¬ìš©í•¨
+	//vector<pair<int, int>> cnt_V; ì¹´ìš´íŒ… ë°°ì—´
 	//vector<int> v;
+	//int max = 0;
 	//for (int i = 0; i < N; i++)
 	//{
 	//	int x; cin >> x;
 	//	v.push_back(x);
-	//	if (x > max) max = x; // °¡Àå Å« ¼ö ±îÁö¸¸ ¹İº¹ÇÏµµ·Ï Ã¼Å©ÇØ³õ´Â´Ù.
+	//	if (x > max) max = x;
 	//}
 
 	//for (int i = 1; i <= max; i++)
@@ -40,7 +45,7 @@ int main()
 	//	{
 	//		if (i == v[j]) cnt++;
 	//	}
-	//	cnt_V.push_back(make_pair(i, cnt)); // °°Àº ¼ıÀÚ¸¦ Ã£¾Æ º¤ÅÍ Ç¥±âÇÑ´Ù.
+	//	cnt_V.push_back(make_pair(i, cnt)); // ê°™ì€ ìˆ«ìë¥¼ ì°¾ì•„ ë²¡í„° í‘œê¸°í•œë‹¤.
 	//}
 
 	//for (int i = 0; i < cnt_V.size(); i++)
