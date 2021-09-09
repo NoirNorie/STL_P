@@ -4,8 +4,8 @@
 #include <algorithm>
 using namespace std;
 
-// ¹®Á¦ ¹øÈ£: 1181(´Ü¾î Á¤·Ä) - 2
-// set ¾øÀÌ Ç®ÀÌÇÔ
+// ë¬¸ì œ ë²ˆí˜¸: 1181(ë‹¨ì–´ ì •ë ¬) - 2
+// set ì—†ì´ í’€ì´í•¨
 
 bool comp_length(const string& a, const string& b)
 {
@@ -33,8 +33,8 @@ int main()
 
 	sort(v.begin(), v.end(), comp_length);
 	v.erase(unique(v.begin(), v.end()), v.end());
-	// º¤ÅÍ.erase(unique(½ÃÀÛ, ³¡), ³¡)
-	// º¤ÅÍ µÚ¿¡ ½×ÀÎ Áßº¹ °ªµéÀ» Á¦°ÅÇÏ´Â Çü½ÄÀ¸·Î Áßº¹À» Á¦°ÅÇÑ´Ù.
+	// ë²¡í„°.erase(unique(ì‹œì‘, ë), ë)
+	// ë²¡í„° ë’¤ì— ìŒ“ì¸ ì¤‘ë³µ ê°’ë“¤ì„ ì œê±°í•˜ëŠ” í˜•ì‹ìœ¼ë¡œ ì¤‘ë³µì„ ì œê±°í•œë‹¤.
 
 	vector<string>::iterator viter;
 	for (viter = v.begin(); viter != v.end(); viter++)
