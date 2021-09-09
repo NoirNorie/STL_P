@@ -5,7 +5,7 @@
 #include <algorithm>
 using namespace std;
 
-// ¹®Á¦ ¹øÈ£: 1181(´Ü¾î Á¤·Ä)
+// ë¬¸ì œ ë²ˆí˜¸: 1181(ë‹¨ì–´ ì •ë ¬)
 
 bool comp_length(const string& a, const string& b)
 {
@@ -37,7 +37,7 @@ int main()
 	{
 		v.push_back(*iter);
 	}
-	// setÀ¸·Î Áßº¹ Á¦°Å
+	// setìœ¼ë¡œ ì¤‘ë³µ ì œê±°
 
 
 	sort(v.begin(), v.end(), comp_length);
