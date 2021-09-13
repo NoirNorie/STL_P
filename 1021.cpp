@@ -3,7 +3,7 @@
 #include <deque>
 using namespace std;
 
-// ¹®Á¦¹øÈ£: 1021(È¸ÀüÇÏ´Â Å¥)
+// ë¬¸ì œ ë²ˆí˜¸: 1021(íšŒì „í•˜ëŠ” í)
 
 int main()
 {
@@ -32,7 +32,7 @@ int main()
 	{
 		for (int i = 0; i < dq.size(); i++)
 		{
-			if (dq.front() == v[vi]) // À§Ä¡¸¦ Ã£´Â´Ù.
+			if (dq.front() == v[vi]) // ìœ„ì¹˜ë¥¼ ì°¾ëŠ”ë‹¤.
 			{
 				srch = i;
 			}
