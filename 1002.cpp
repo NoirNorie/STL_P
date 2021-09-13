@@ -5,27 +5,29 @@ using namespace std;
 
 int RangeCalc(int x1, int y1, int r1, int x2, int y2, int r2);
 
+// ë¬¸ì œ ë²ˆí˜¸: 1002(í„°ë ›)
+
 int main()
 {
 	int x1 = 0, x2 = 0, y1 = 0, y2 = 0, r1 = 0, r2 = 0;
-	// °¢ ÁÂÇ¥ ÃÊ±âÈ­
-	// 1¹øÀº Á¶±ÔÇö, 2¹øÀº ¹é½ÂÈ¯
-	// rÀº ·ùÀç¸í°úÀÇ °Å¸®
-	vector<int> Result_V; // °á°ú¸¦ ´ãÀ» º¤ÅÍ »ı¼º
+	// ê° ì¢Œí‘œ ì´ˆê¸°í™”
+	// 1ë²ˆì€ ì¡°ê·œí˜„, 2ë²ˆì€ ë°±ìŠ¹í™˜
+	// rì€ ë¥˜ì¬ëª…ê³¼ì˜ ê±°ë¦¬
+	vector<int> Result_V; // ê²°ê³¼ë¥¼ ë‹´ì„ ë²¡í„° ìƒì„±
 	
-	// Å×½ºÆ®ÄÉÀÌ½º ÀÔ·Â
+	// í…ŒìŠ¤íŠ¸ì¼€ì´ìŠ¤ ì…ë ¥
 	int T; cin >> T;
 
-	for (int i = 0; i < T; i++) // Å×½ºÆ® ÄÉÀÌ½º ¹İº¹
+	for (int i = 0; i < T; i++) // í…ŒìŠ¤íŠ¸ ì¼€ì´ìŠ¤ ë°˜ë³µ
 	{
 		cin >> x1 >> y1 >> r1 >> x2 >> y2 >> r2;
-		// ÇØ´ç Å×½ºÆ® ÄÉÀÌ½ºÀÇ ÁÂÇ¥, °Å¸® °ª ÀÔ·Â
+		// í•´ë‹¹ í…ŒìŠ¤íŠ¸ ì¼€ì´ìŠ¤ì˜ ì¢Œí‘œ, ê±°ë¦¬ ê°’ ì…ë ¥
 
 		Result_V.push_back(RangeCalc(x1, y1, r1, x2, y2, r2));
 		//cout << RangeCalc(x1, y1, r1, x2, y2, r2) << endl;
 	}
 
-	vector<int>::iterator iter; // °á°ú Ãâ·Â
+	vector<int>::iterator iter; // ê²°ê³¼ ì¶œë ¥
 	for (iter = Result_V.begin(); iter != Result_V.end(); iter++)
 	{
 		cout << *iter << endl;
@@ -36,27 +38,27 @@ int main()
 int RangeCalc(int x1, int y1, int r1, int x2, int y2, int r2)
 {
 	double dist = sqrt(pow(x1 - x2, 2) + pow(y1 - y2, 2));
-	if (x1 == x2 && y1 == y2 && r1 == r2) // ¿ø ÀÚÃ¼°¡ ÀÏÄ¡
+	if (x1 == x2 && y1 == y2 && r1 == r2) // ì› ìì²´ê°€ ì¼ì¹˜
 	{
 		return -1;
 	}
-	else if(dist == r1 + r2) // ¿ÜÁ¢ÇÏ´Â °æ¿ì
+	else if(dist == r1 + r2) // ì™¸ì ‘í•˜ëŠ” ê²½ìš°
 	{
 		return 1;
 	}
-	else if (dist == abs(r1-r2)) // ³»Á¢ÇÏ´Â °æ¿ì
+	else if (dist == abs(r1-r2)) // ë‚´ì ‘í•˜ëŠ” ê²½ìš°
 	{
 		return 1;
 	}
-	else if (dist > r1 + r2) // µÎ ¿øÀÌ ¼­·Î ¶³¾îÁ® ÀÖ°í Á¢Á¡ X
+	else if (dist > r1 + r2) // ë‘ ì›ì´ ì„œë¡œ ë–¨ì–´ì ¸ ìˆê³  ì ‘ì  X
 	{
 		return 0;
 	}
-	else if (dist <= abs(r1-r2) ) // ¿øÀÌ ´Ù¸¥ ¿ø ³»ºÎ¿¡ Á¸Àç, Á¢Á¡ X
+	else if (dist <= abs(r1-r2) ) // ì›ì´ ë‹¤ë¥¸ ì› ë‚´ë¶€ì— ì¡´ì¬, ì ‘ì  X
 	{
 		return 0;
 	}
-	else // ±× ¹ÛÀÇ °æ¿ì´Â ¸ğµÎ µÎ Á¡¿¡¼­ ¸¸³­´Ù.
+	else // ê·¸ ë°–ì˜ ê²½ìš°ëŠ” ëª¨ë‘ ë‘ ì ì—ì„œ ë§Œë‚œë‹¤.
 	{
 		return 2;
 	}
