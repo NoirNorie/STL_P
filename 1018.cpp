@@ -3,7 +3,7 @@
 #include <string>
 using namespace std;
 
-// ¹®Á¦ ¹øÈ£: 1018(Ã¼½ºÆÇ ´Ù½Ã Ä¥ÇÏ±â)
+// ë¬¸ì œ ë²ˆí˜¸: 1018(ì²´ìŠ¤íŒ ë‹¤ì‹œ ì¹ í•˜ê¸°)
 
 int main()
 {
@@ -19,45 +19,23 @@ int main()
 	vector<string> str;
 	string st;
 
-	for (int i = 0; i < M; i++) // º¸µå¸¦ ÀÔ·Â ¹Ş´Â´Ù.
+	for (int i = 0; i < M; i++) // ë³´ë“œë¥¼ ì…ë ¥ ë°›ëŠ”ë‹¤.
 	{
 		cin >> st;
 		str.push_back(st);
 	}
-
-	//if (M == 8 && N == 8) // Ã¼½º ÆÇ Å©±â¿Í µ¿ÀÏÇÒ °æ¿ì Àß¶ó³»´Â °æ¿ì°¡ ¾øÀ¸¹Ç·Î »¡¸® Ã³¸®ÇÑ´Ù
-	//{
-	//	for (int i = 0; i < str.size(); i++)
-	//	{
-	//		for (int j = 0; j < str.size(); j++)
-	//		{
-	//			if (i % 2 == 0)
-	//			{
-	//				if (str[i][j] != type1[j]) dif1++;
-	//				if (str[i][j] != type2[j]) dif2++;
-	//			}
-	//			else
-	//			{
-	//				if (str[i][j] != type2[j]) dif1++;
-	//				if (str[i][j] != type1[j]) dif2++;
-	//			}	
-	//		}
-	//	}
-	//	cout << (dif1 <= dif2) ? dif1 : dif2 << '\n';
-	//}
-	// Ã¼½º ÆÇ Å©±âº¸´Ù ´õ Å¬ °æ¿ì Àß¶ó³»´Â °æ¿ìµµ »ı°¢ÇØ¾ß ÇÑ´Ù.
 	
 	int min = 9999;
 
 	for (int a = 0; a <= M - 8; a++)
 	{	
-		for (int b = 0; b <= N - 8; b++) // °¡·Î ¹İº¹
+		for (int b = 0; b <= N - 8; b++) // ê°€ë¡œ ë°˜ë³µ
 		{
 			dif1 = 0; dif2 = 0;
 
-			for (int i = 0; i < 8; i++) // ¼¼·Î ¹İº¹
+			for (int i = 0; i < 8; i++) // ì„¸ë¡œ ë°˜ë³µ
 			{
-				for (int k = 0; k < 8; k++) // ¹®ÀÚ¿­ Å½»ö
+				for (int k = 0; k < 8; k++) // ë¬¸ìì—´ íƒìƒ‰
 				{
 					if (i % 2 == 0)
 					{
