@@ -2,7 +2,7 @@
 #include <cmath>
 using namespace std;
 
-// ¹®Á¦¹øÈ£: 1011(Fly me to the Alpha centauri)
+// ë¬¸ì œ ë²ˆí˜¸: 1011(Fly me to the Alpha centauri)
 
 int main()
 {
