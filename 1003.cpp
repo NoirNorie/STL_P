@@ -2,6 +2,8 @@
 #include <vector>
 using namespace std;
 
+// ë¬¸ì œ ë²ˆí˜¸: 1003(í”¼ë³´ë‚˜ì¹˜ í•¨ìˆ˜)
+
 vector<int> memo; // Memoization Vector
 
 int cnt0 = 0; int cnt1 = 0;
@@ -10,26 +12,26 @@ int Memoization_fibo(int n);
 
 int main()
 {
-    vector<pair<int, int>> Result_V; // °á°ú¸¦ ´ãÀ» º¤ÅÍ
+    vector<pair<int, int>> Result_V; // ê²°ê³¼ë¥¼ ë‹´ì„ ë²¡í„°
 
     int Trial, N;
-    cin >> Trial; // È½¼ö¸¦ ÀÔ·Â¹ŞÀ½
+    cin >> Trial; // íšŸìˆ˜ë¥¼ ì…ë ¥ë°›ìŒ
 
     for (int i = 0; i < Trial; i++)
     {
-        cin >> N; // Å×½ºÆ® ÄÉÀÌ½º ÀÔ·Â
+        cin >> N; // í…ŒìŠ¤íŠ¸ ì¼€ì´ìŠ¤ ì…ë ¥
 
 
-        memo = { 0, 1 }; // ÃÊ±âÈ­
+        memo = { 0, 1 }; // ì´ˆê¸°í™”
 
         Memoization_fibo(N);
-        Result_V.push_back(make_pair(cnt0, cnt1)); // °á°ú ÀúÀå
+        Result_V.push_back(make_pair(cnt0, cnt1)); // ê²°ê³¼ ì €ì¥
 
         memo.clear();
-        cnt0 = 0; cnt1 = 0; // Àü¿ªº¯¼ö ÃÊ±âÈ­
+        cnt0 = 0; cnt1 = 0; // ì „ì—­ë³€ìˆ˜ ì´ˆê¸°í™”
     }
 
-    vector<pair<int, int>>::iterator iter; // Å×½ºÆ® ÄÉÀÌ½º Ãâ·Â
+    vector<pair<int, int>>::iterator iter; // í…ŒìŠ¤íŠ¸ ì¼€ì´ìŠ¤ ì¶œë ¥
     for (iter = Result_V.begin(); iter != Result_V.end(); iter++)
     {
         cout << iter->first << " " << iter->second << endl;
@@ -52,15 +54,15 @@ int Memoization_fibo(int n)
         cnt1++;
         result = n;
     }
-    else // 2 ÀÌ»óÀÇ °æ¿ì
+    else // 2 ì´ìƒì˜ ê²½ìš°
     {
         int index = n;
-        if (index >= memo.size()) // º¤ÅÍÀÇ Å©±âº¸´Ù ¹İº¹ È½¼ö°¡ Å« °æ¿ì
+        if (index >= memo.size()) // ë²¡í„°ì˜ í¬ê¸°ë³´ë‹¤ ë°˜ë³µ íšŸìˆ˜ê°€ í° ê²½ìš°
         {
-            memo.push_back(Memoization_fibo(index - 1) + Memoization_fibo(index - 2)); // »õ·Ó°Ô °ªÀ» ±â¾ïÇÑ´Ù.
+            memo.push_back(Memoization_fibo(index - 1) + Memoization_fibo(index - 2)); // ìƒˆë¡­ê²Œ ê°’ì„ ê¸°ì–µí•œë‹¤.
             result = memo[index];
         }     
-        else // ¾Æ´Ñ °æ¿ì °ªÀ» ³Ñ°ÜÁØ´Ù.
+        else // ì•„ë‹Œ ê²½ìš° ê°’ì„ ë„˜ê²¨ì¤€ë‹¤.
         {
             result = memo[index];
         }
