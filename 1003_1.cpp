@@ -2,12 +2,14 @@
 #include <vector>
 using namespace std;
 
+// ë¬¸ì œ ë²ˆí˜¸: 1003(í”¼ë³´ë‚˜ì¹˜ í•¨ìˆ˜)
+
 vector<pair<int, int>> memo; // Memorization Vector
 pair<int, int> Memoization_fibo(int n);
 
 int main()
 {
-    vector<pair<int, int>> Result_V; // °á°ú¸¦ ´ãÀ» º¤ÅÍ
+    vector<pair<int, int>> Result_V; // ê²°ê³¼ë¥¼ ë‹´ì„ ë²¡í„°
 
     int Trial, N;
     cin >> Trial;
@@ -41,19 +43,19 @@ pair<int, int> Memoization_fibo(int n)
     {
         result = make_pair(0, 1);
     }
-    else // 2 ÀÌ»óÀÇ °æ¿ì
+    else // 2 ì´ìƒì˜ ê²½ìš°
     {
         int index = n;
-        if (index >= memo.size()) // º¤ÅÍÀÇ Å©±âº¸´Ù ¹İº¹ È½¼ö°¡ Å« °æ¿ì
+        if (index >= memo.size()) // ë²¡í„°ì˜ í¬ê¸°ë³´ë‹¤ ë°˜ë³µ íšŸìˆ˜ê°€ í° ê²½ìš°
         {
             memo.push_back(
                 make_pair(
                     (Memoization_fibo(n - 2).first + Memoization_fibo(n - 1).first),
                     (Memoization_fibo(n - 2).second + Memoization_fibo(n - 1).second))
-            ); // »õ·Ó°Ô °ªÀ» ±â¾ïÇÑ´Ù.
+            ); // ìƒˆë¡­ê²Œ ê°’ì„ ê¸°ì–µí•œë‹¤.
             result = memo[index];
         }
-        else // ¾Æ´Ñ °æ¿ì °ªÀ» ³Ñ°ÜÁØ´Ù.
+        else // ì•„ë‹Œ ê²½ìš° ê°’ì„ ë„˜ê²¨ì¤€ë‹¤.
         {
             result = memo[index];
         }
