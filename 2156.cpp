@@ -2,7 +2,7 @@
 #include <vector>
 using namespace std;
 
-// ¹®Á¦ ¹øÈ£: 2156(Æ÷µµÁÖ ½Ã½Ä)
+// ë¬¸ì œ ë²ˆí˜¸: 2156(í¬ë„ì£¼ ì‹œì‹)
 
 inline int MAX(int x, int y, int z)
 {
