@@ -3,6 +3,8 @@
 #include <algorithm>
 using namespace std;
 
+// 문제 번호: 2565(전기줄)
+
 inline int MAX(int x, int y)
 {
 	return x > y ? x : y;
@@ -20,6 +22,9 @@ int main()
 	}
 
 	sort(v.begin(), v.end());
+	// 주어진 입력에서 가장 긴 부분 증가 수열을 만든다
+	// 임의의 순서로 들어온 입력에 대해서 정렬을 수행해야 한다.
+	// pair 객체도 내장 함수가 sort 해준다.
 
 	dp[1] = 1;
 	for (int i = 2; i <= N; i++)
@@ -39,8 +44,11 @@ int main()
 	{
 		tmp = MAX(tmp, dp[i]);
 	}
+	// 가장 긴 부분 증가 수열을 제외한 나머지 값들은 수열의 값과 교차하게 된다.
+	// 교차하는 부분을 제거해서 출력해준다.
 
 	cout << v.size() - tmp - 1 << '\n';
+	// 벡터를 1부터 입력받았으므로 -1을 해준다.
 
 	return 0;
 }
