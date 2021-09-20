@@ -2,6 +2,8 @@
 #include <vector>
 using namespace std;
 
+// 문제 번호: 11047(동전 0)
+
 int main()
 {
 	ios_base::sync_with_stdio(false);
