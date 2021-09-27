@@ -4,14 +4,13 @@
 #include <algorithm>
 using namespace std;
 
-// ¹®Á¦ ¹øÈ£: 2981(°Ë¹®)
-// MÀ¸·Î ³ª´« ³ª¸ÓÁö°¡ ¸ğµÎ µ¿ÀÏÇÏ°Ô ¸¸Á·ÇÑ´Ù
+// ë¬¸ì œ ë²ˆí˜¸: 2981(ê²€ë¬¸)
+// Mìœ¼ë¡œ ë‚˜ëˆˆ ë‚˜ë¨¸ì§€ê°€ ëª¨ë‘ ë™ì¼í•˜ê²Œ ë§Œì¡±í•œë‹¤
 // a % M = a - (a/M)*M
 // b % M = b - (b/M)*M
 // b - a = M * (b/M - a/M)
 
-
-int gcd(int a, int b) // À¯Å¬¸®µå ¾Ë°í¸®Áò
+int gcd(int a, int b) // ìœ í´ë¦¬ë“œ ì•Œê³ ë¦¬ì¦˜
 {
 	while (b != 0)
 	{
@@ -22,7 +21,6 @@ int gcd(int a, int b) // À¯Å¬¸®µå ¾Ë°í¸®Áò
 	return a;
 }
 
-
 int main()
 {
 	ios_base::sync_with_stdio(false);
@@ -32,20 +30,19 @@ int main()
 	vector<long long int> v(N, 0);
 	vector<long long int> r;
 
-	// ÀÔ·ÂÀ» ¹Ş´Â´Ù.
+	// ì…ë ¥ì„ ë°›ëŠ”ë‹¤.
 	for (int i = 0; i < N; i++)
 	{
 		cin >> v[i];
 	}
 
-	// ÃÖ´ë °ø¾à¼ö¸¦ ±¸ÇÑ´Ù
+	// ìµœëŒ€ ê³µì•½ìˆ˜ë¥¼ êµ¬í•œë‹¤
 	int gc = abs(v[1] - v[0]);
 	for (int i = 2; i < v.size(); i++)
 	{
 		gc = gcd(gc, abs(v[i] - v[i-1]));
 	}
 
-	// 2º¸´Ù Å« ¼ö¸¦ ±¸ÇÑ´Ù.
 	for (int i = 1; i*i <= gc; i++)
 	{
 		if (gc % i == 0)
@@ -58,6 +55,7 @@ int main()
 		}
 	}
 
+	// ì˜¤ë¦„ì°¨ìˆœìœ¼ë¡œ ì¶œë ¥í•´ì•¼ í•˜ë¯€ë¡œ ì •ë ¬í•´ì„œ ì¶œë ¥í•œë‹¤.
 	sort(r.begin(), r.end());
 	for (int i = 0; i < r.size(); i++)
 	{
