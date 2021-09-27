@@ -1,7 +1,9 @@
 #include <iostream>
 using namespace std;
 
-// ���� ��ȣ: 11050(���� ��� 1)
+// 문제 번호: 11050(이항 계수 1)
+// 팩토리얼로 풀 수 있어서 팩토리얼로 품
+// 점화식을 사용하면 더 빠르게 풀 수 있을 것임
 
 inline int facto(int x)
 {
