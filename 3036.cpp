@@ -2,7 +2,8 @@
 #include <vector>
 using namespace std;
 
-// ���� ��ȣ: 3036(��)
+// 문제 번호: 3036(링)
+// (가장 큰 톱니바퀴 / 최대 공약수) / (원하는 톱니바퀴 / 최대 공약수)
 
 int gcd(int x, int y)
 {
