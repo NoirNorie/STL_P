@@ -2,6 +2,8 @@
 #include <vector>
 using namespace std;
 
+// ë¬¸ì œ ë²ˆí˜¸: 2565(ì „ê¸°ì¤„)
+
 int main()
 {
 	ios_base::sync_with_stdio(false);
@@ -16,20 +18,20 @@ int main()
 
 	
 
-	for (int i = 1; i <= N; i++) // ¼ø¼­ ½ÖÀ» ÀÔ·Â ¹Ş´Â´Ù.
+	for (int i = 1; i <= N; i++) // ìˆœì„œ ìŒì„ ì…ë ¥ ë°›ëŠ”ë‹¤.
 	{
 		cin >> v[i].first >> v[i].second;
 	}
 
-	// ±³Â÷ °Ë»ç
+	// êµì°¨ ê²€ì‚¬
 	int Fsub = 0;
-	for (int i = 1; i <= N; i++) // ¾Õ¿¡¼­ µÚ·Î
+	for (int i = 1; i <= N; i++) // ì•ì—ì„œ ë’¤ë¡œ
 	{
 		for (int j = i + 1; j <= N; j++)
 		{
 			if (v[i].first < v[j].first && v[i].second > v[j].second)
 			{
-				Rear[i].first++; // ÀÚ½Åº¸´Ù ¾Æ·¡¿¡ À§Ä¡ÇÑ ¼ø¼­ ½ÖÀÌ ÀÚ½Å°ú ±³Â÷ÇÒ °æ¿ì Ä«¿îÆ®¸¦ Áõ°¡½ÃÅ²´Ù.
+				Rear[i].first++; // ìì‹ ë³´ë‹¤ ì•„ë˜ì— ìœ„ì¹˜í•œ ìˆœì„œ ìŒì´ ìì‹ ê³¼ êµì°¨í•  ê²½ìš° ì¹´ìš´íŠ¸ë¥¼ ì¦ê°€ì‹œí‚¨ë‹¤.
 			}
 		}
 		if (Rear[i].first > 0) Fsub++;
@@ -37,13 +39,13 @@ int main()
 		Rear[i].second = Fsub;
 	}
 	int Rsub = 0;
-	for (int i = N; i >= 0; i--) // µÚ¿¡¼­ ¾ÕÀ¸·Î
+	for (int i = N; i >= 0; i--) // ë’¤ì—ì„œ ì•ìœ¼ë¡œ
 	{
 		for (int j = i - 1; j >= 0; j--)
 		{
 			if (v[i].first < v[j].first && v[i].second > v[j].second)
 			{
-				Front[i].first++; // ÀÚ½Åº¸´Ù À§¿¡ À§Ä¡ÇÑ ¼ø¼­ ½ÖÀÌ ÀÚ½Å°ú ±³Â÷ÇÒ °æ¿ì Ä«¿îÆ®¸¦ Áõ°¡½ÃÅ²´Ù.
+				Front[i].first++; // ìì‹ ë³´ë‹¤ ìœ„ì— ìœ„ì¹˜í•œ ìˆœì„œ ìŒì´ ìì‹ ê³¼ êµì°¨í•  ê²½ìš° ì¹´ìš´íŠ¸ë¥¼ ì¦ê°€ì‹œí‚¨ë‹¤.
 			}
 		}
 		if (Front[i].first > 0) Rsub++;
