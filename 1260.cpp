@@ -4,20 +4,20 @@
 #include <queue>
 using namespace std;
 
-// ¹®Á¦ ¹øÈ£: 1260(DFS¿Í BFS)
+// ë¬¸ì œ ë²ˆí˜¸: 1260(DFSì™€ BFS)
 /*
-	±íÀÌ¿ì¼±
-	- Àç±Í ¶Ç´Â ½ºÅÃÀ¸·Î ±¸Çö
-	- ÀÏ´Ü °¡´Âµ¥ ±îÁö´Â ÀÏ¹æÇâÀ¸·Î ÀÌµ¿ÇÑ´Ù
-	- ÀÌÈÄ ¾È°¡º»µ¥¸¦ Ã£´Â´Ù
+	ê¹Šì´ ìš°ì„  íƒìƒ‰ (Depth First Search)
+	- ì¬ê·€ ë˜ëŠ” ìŠ¤íƒìœ¼ë¡œ êµ¬í˜„
+	- ì¼ë‹¨ ê°€ëŠ”ë° ê¹Œì§€ëŠ” ì¼ë°©í–¥ìœ¼ë¡œ ì´ë™í•œë‹¤
+	- ì´í›„ ì•ˆê°€ë³¸ë°ë¥¼ ì°¾ëŠ”ë‹¤
 
-	³ĞÀÌ¿ì¼±
-	- Å¥·Î ±¸Çö
-	- °¥ ¼ö ÀÖ´Â ¸ğµç ¹æÇâÀ» Å¥¿¡ ³Ö´Â´Ù
-	- Å¥¿¡ ³Ö¾îÁø ³ëµåµµ °¥ ¼ö ÀÖ´Â ¹æÇâÀ» ¸ğµÎ Å¥¿¡ ³Ö´Â´Ù
-	- ±× Áß¿¡¼­ °¡º»Àû ¾ø´Â °ÍµéÀÌ¸é Ãâ·ÂÇÏ°í ¾Æ´Ï¸é »©¹ö¸°´Ù.
+	ë„ˆë¹„ ìš°ì„  íƒìƒ‰ (Breadth First Search)
+	- íë¡œ êµ¬í˜„
+	- ê°ˆ ìˆ˜ ìˆëŠ” ëª¨ë“  ë°©í–¥ì„ íì— ë„£ëŠ”ë‹¤
+	- íì— ë„£ì–´ì§„ ë…¸ë“œë„ ê°ˆ ìˆ˜ ìˆëŠ” ë°©í–¥ì„ ëª¨ë‘ íì— ë„£ëŠ”ë‹¤
+	- ê·¸ ì¤‘ì—ì„œ ê°€ë³¸ì  ì—†ëŠ” ê²ƒë“¤ì´ë©´ ì¶œë ¥í•˜ê³  ì•„ë‹ˆë©´ ë¹¼ë²„ë¦°ë‹¤.
 
-	* ¾î¶² ³ëµå¸¦ ¹æ¹®Çß´ÂÁö ¹İµå½Ã °Ë»çÇÏ°í ±â·ÏÇØ¾ß ÇÑ´Ù
+	* ì–´ë–¤ ë…¸ë“œë¥¼ ë°©ë¬¸í–ˆëŠ”ì§€ ë°˜ë“œì‹œ ê²€ì‚¬í•˜ê³  ê¸°ë¡í•´ì•¼ í•œë‹¤
 */
 
 class vertex
@@ -26,10 +26,10 @@ private:
 	int vertex_number;
 	bool visited;
 
-	vector<bool> link; // ¿¬°á ¿©ºÎ¸¦ ±â·ÏÇÒ º¤ÅÍ
+	vector<bool> link; // ì—°ê²° ì—¬ë¶€ë¥¼ ê¸°ë¡í•  ë²¡í„°
 
 public:
-	vertex(int n, int size) // »ı¼ºÀÚ
+	vertex(int n, int size) // ìƒì„±ì
 	{
 		vertex_number = n;
 		visited = false;
@@ -41,9 +41,9 @@ public:
 		return vertex_number;
 	}
 
-	void linker(int i) // ¿¬°á ÁöÁ¤ ÇÔ¼ö
+	void linker(int i) // ì—°ê²° ì§€ì • í•¨ìˆ˜
 	{
-		link[i] = true; // ¿¬°áµÇ¾ú´Ù°í Ç¥½ÃÇÑ´Ù.
+		link[i] = true; // ì—°ê²°ë˜ì—ˆë‹¤ê³  í‘œì‹œí•œë‹¤.
 	}
 
 	void set_visit()
@@ -51,58 +51,58 @@ public:
 		visited = true;
 	}
 
-	bool has_linked(int i) // ¿¬°á ¿©ºÎ¸¦ °Ë»çÇÒ ÇÔ¼ö
+	bool has_linked(int i) // ì—°ê²° ì—¬ë¶€ë¥¼ ê²€ì‚¬í•  í•¨ìˆ˜
 	{
 		if (link[i] == true) return true;
 		else return false;
 	}
 
-	bool has_visited() // ¹æ¹® ¿©ºÎ¸¦ °Ë»çÇÒ ÇÔ¼ö
+	bool has_visited() // ë°©ë¬¸ ì—¬ë¶€ë¥¼ ê²€ì‚¬í•  í•¨ìˆ˜
 	{
 		if (visited == true) return true;
 		else return false;
 	}
 };
 
-void DFS(int init, vector<vertex>& DFS_graph) // ±íÀÌ ¿ì¼±
+void DFS(int init, vector<vertex>& DFS_graph) // ê¹Šì´ ìš°ì„ 
 {
-	DFS_graph[init].set_visit(); // ¹æ¹®Çß´Ù°í ±â·ÏÇÑ´Ù.
-	cout << DFS_graph[init].get_vertex_number() << " "; // Á¤Á¡ Ãâ·Â
+	DFS_graph[init].set_visit(); // ë°©ë¬¸í–ˆë‹¤ê³  ê¸°ë¡í•œë‹¤.
+	cout << DFS_graph[init].get_vertex_number() << " "; // ì •ì  ì¶œë ¥
 
 	for (int i = 0; i < DFS_graph.size(); i++)
 	{
-		if (DFS_graph[init].has_linked(i)) // ¿¬°á µÇ¾ú´Â°¡?
+		if (DFS_graph[init].has_linked(i)) // ì—°ê²° ë˜ì—ˆëŠ”ê°€?
 		{
-			if(DFS_graph[i].has_visited() == false) // ¹æ¹®µÈÀû ¾ø´Â ³ëµåÀÎ°¡?
+			if(DFS_graph[i].has_visited() == false) // ë°©ë¬¸ëœì  ì—†ëŠ” ë…¸ë“œì¸ê°€?
 			{			
-				DFS(i, DFS_graph); // Àç±Í¿¡ µé¾î°£´Ù.
+				DFS(i, DFS_graph); // ì¬ê·€ì— ë“¤ì–´ê°„ë‹¤.
 			}
 		}
 
 	}
 }
 
-void BFS(int init, vector<vertex>& BFS_graph) // ³ĞÀÌ ¿ì¼±
+void BFS(int init, vector<vertex>& BFS_graph) // ë„“ì´ ìš°ì„ 
 {
-	BFS_graph[init].set_visit(); // ¹æ¹®Çß´Ù°í ±â·ÏÇÑ´Ù.
-	cout << BFS_graph[init].get_vertex_number() << " "; // Á¤Á¡ Ãâ·Â
+	BFS_graph[init].set_visit(); // ë°©ë¬¸í–ˆë‹¤ê³  ê¸°ë¡í•œë‹¤.
+	cout << BFS_graph[init].get_vertex_number() << " "; // ì •ì  ì¶œë ¥
 
 	queue<int, deque<int>> prt_wait;
 	for (int i = 1; i < BFS_graph.size(); i++)
 	{
-		if (BFS_graph[init].has_linked(i)) // ÀÏ´Ü ¿¬°áµÈ °æ¿ì ´Ù Å¥¿¡ ³Ö´Â´Ù.
+		if (BFS_graph[init].has_linked(i)) // ì¼ë‹¨ ì—°ê²°ëœ ê²½ìš° ë‹¤ íì— ë„£ëŠ”ë‹¤.
 		{
 			prt_wait.push(i);
 		}
 	}
 
-	while (prt_wait.empty() != true) //Å¥°¡ ºô ¶§±îÁö ¹İº¹ÇÑ´Ù.
+	while (prt_wait.empty() != true) //íê°€ ë¹Œ ë•Œê¹Œì§€ ë°˜ë³µí•œë‹¤.
 	{
 		for (int i = 1; i < BFS_graph.size(); i++)
 		{
-			if (BFS_graph[prt_wait.front()].has_linked(i)) // ÀÏ´Ü ¿¬°áµÈ °æ¿ì ´Ù Å¥¿¡ ³Ö´Â´Ù.
+			if (BFS_graph[prt_wait.front()].has_linked(i)) // ì¼ë‹¨ ì—°ê²°ëœ ê²½ìš° ë‹¤ íì— ë„£ëŠ”ë‹¤.
 			{
-				if (BFS_graph[i].has_visited() == false) // ¹æ¹®µÈÀû ¾ø´Â ³ëµåÀÎ°¡?
+				if (BFS_graph[i].has_visited() == false) // ë°©ë¬¸ëœì  ì—†ëŠ” ë…¸ë“œì¸ê°€?
 				{
 					prt_wait.push(i);
 				}
@@ -112,10 +112,10 @@ void BFS(int init, vector<vertex>& BFS_graph) // ³ĞÀÌ ¿ì¼±
 
 		if (BFS_graph[prt_wait.front()].has_visited() == false)
 		{
-			BFS_graph[prt_wait.front()].set_visit(); // ¹æ¹®Çß´Ù°í ±â·ÏÇÑ´Ù.
-			cout << BFS_graph[prt_wait.front()].get_vertex_number() << " "; // Á¤Á¡ Ãâ·Â
+			BFS_graph[prt_wait.front()].set_visit(); // ë°©ë¬¸í–ˆë‹¤ê³  ê¸°ë¡í•œë‹¤.
+			cout << BFS_graph[prt_wait.front()].get_vertex_number() << " "; // ì •ì  ì¶œë ¥
 		}
-		prt_wait.pop(); // Á¦°ÅÇÑ´Ù.
+		prt_wait.pop(); // ì œê±°í•œë‹¤.
 	}
 }
 
@@ -124,20 +124,20 @@ int main()
 	ios_base::sync_with_stdio(false);
 	cin.tie(NULL); cout.tie(NULL);
 
-	int N; int M; int init; // Á¤Á¡ ¼ö, °£¼± ¼ö, ½ÃÀÛÁ¡
+	int N; int M; int init; // ì •ì  ìˆ˜, ê°„ì„  ìˆ˜, ì‹œì‘ì 
 	cin >> N >> M >> init;
 
-	vector<vertex> DFS_graph; // Á¤Á¡À¸·Î ±¸¼ºµÉ º¤ÅÍ
+	vector<vertex> DFS_graph; // ì •ì ìœ¼ë¡œ êµ¬ì„±ë  ë²¡í„°
 	vector<vertex> BFS_graph; 
 
 	for (int i = 0; i <= N; i++)
 	{
 		vertex a(i, N);
-		DFS_graph.push_back(a); // Á¤Á¡À» º¤ÅÍ¿¡ ±â·ÏÇÑ´Ù.
+		DFS_graph.push_back(a); // ì •ì ì„ ë²¡í„°ì— ê¸°ë¡í•œë‹¤.
 		BFS_graph.push_back(a);
 	}
 
-	for (int i = 0; i < M; i++) // Á¤Á¡ °£ ¿¬°á ÁöÁ¤
+	for (int i = 0; i < M; i++) // ì •ì  ê°„ ì—°ê²° ì§€ì •
 	{
 		int a, b;
 		cin >> a >> b;
@@ -145,12 +145,12 @@ int main()
 		BFS_graph[a].linker(b); BFS_graph[b].linker(a);
 	}
 
-	// DFS Ãâ·Â
+	// DFS ì¶œë ¥
 	DFS(init, DFS_graph);
 
 	cout << '\n';
 
-	// BFS Ãâ·Â
+	// BFS ì¶œë ¥
 	BFS(init, BFS_graph);
 
 	return 0;
