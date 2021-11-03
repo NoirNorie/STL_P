@@ -2,13 +2,13 @@
 #include <vector>
 using namespace std;
 
-// ¹®Á¦ ¹øÈ£: 9095(1, 2, 3 ´õÇÏ±â)
+// ë¬¸ì œ ë²ˆí˜¸: 9095(1, 2, 3 ë”í•˜ê¸°)
 
 vector<int> dp(12, 0);
 
 int main()
 {
-	dp[1] = 1; dp[2] = 2; dp[3] = 4; // ÃÊ±â°ª
+	dp[1] = 1; dp[2] = 2; dp[3] = 4; // ÃƒÃŠÂ±Ã¢Â°Âª
 
 	int T; cin >> T;
 	while (T--)
