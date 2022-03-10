@@ -20,6 +20,8 @@ int main()
     vector<vector<int>> area(n, vector<int>(n, 0)), test;
     for (size_t i = 0; i < area.size(); i++) for (size_t j = 0; j < area[i].size(); j++) cin >> area[i][j];
 
+    // 비가 안오는 경우도 생각해야 하기 때문에 0부터 시작해야 한다
+    // 문제에서 맨 아래 적혀 있더라
     int level = 0;
     while (cnt != 0) // 높이 제한이 나와있지 않아 반복함
     {
